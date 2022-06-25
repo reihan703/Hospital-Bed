@@ -1,9 +1,14 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
+
 import {
 	getAuth,
 	createUserWithEmailAndPassword,
+	signInWithEmailAndPassword,
+	signOut,
+	onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
+
 import {
 	getDatabase,
 	ref,
@@ -27,11 +32,13 @@ const firebaseConfig = {
 	messagingSenderId: "273820684139",
 	appId: "1:273820684139:web:c78731181216a7133bc62e",
 	measurementId: "G-Q67WQ1MJWN",
+	databaseURL:
+		"https://hospitalbed-cc609-default-rtdb.asia-southeast1.firebasedatabase.app/",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getDatabase();
+const db = getDatabase(app);
 const auth = getAuth(app);
 
 export {
@@ -45,4 +52,7 @@ export {
 	db,
 	auth,
 	createUserWithEmailAndPassword,
+	signInWithEmailAndPassword,
+	signOut,
+	onAuthStateChanged,
 };
