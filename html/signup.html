@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Page</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+</head>
+  <body class="container">
+    <div class="row">
+      <div class="d-flex justify-content-center align-items-center loginForm">
+        <form class="d-flex flex-column">
+          <label for="name" class="mt-2">Display Name</label>
+          <input placeholder="Name" type="text" class="form-control name" name="name" id="name">
+          <label for="email" class="mt-2">Email</label>
+          <input placeholder="email@mail.com" type="email" class="form-control email" name="email" id="email">
+          <label for="password" class="mt-2">Password</label>
+          <input placeholder="password" type="password" class="form-control password" name="password" id="password">
+          <p class="text-muted text-center mt-1">
+            Already have an account? <a href="./login.html" class="text-primary">Signin Here</a>!
+          </p>
+          <div class="d-flex flex-row justify-content-center">
+            <button id="btnCreateAcc" style="min-width: 150px;" class="btn btn-outline-success mx-1 w-auto text-nowrap">Create Account</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row footer">
+      <h3>footer content</h3>
+    </div>
+    
+    <!-- SIGNUP AND LOGIN -->
+    <script type="module" src="../javascript/signup.js"></script>
+    <!-- ROUTE GUARD -->
+    <script type="module">
+      import { auth, onAuthStateChanged } from "../javascript/config.js";
+
+      onAuthStateChanged(auth, (user) => {
+      if (user != null) {
+        window.location.href = "./home.html"
+      }
+    });
+    </script>
+  </body>
+</html>

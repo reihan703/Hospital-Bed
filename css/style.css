@@ -1,0 +1,17 @@
+html, body{
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.loginForm { 
+  height: 80vh;
+}
+
+.form-control.email, .form-control.password {
+  min-width: 300px; 
+}
