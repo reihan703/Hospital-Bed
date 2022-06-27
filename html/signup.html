@@ -10,22 +10,28 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
 </head>
   <body class="container">
+    <div class="row nav mt-3">
+      <h3>Nav content</h3>
+    </div>
     <div class="row">
       <div class="d-flex justify-content-center align-items-center loginForm">
-        <form class="d-flex flex-column">
-          <label for="name" class="mt-2">Display Name</label>
-          <input placeholder="Name" type="text" class="form-control name" name="name" id="name">
-          <label for="email" class="mt-2">Email</label>
-          <input placeholder="email@mail.com" type="email" class="form-control email" name="email" id="email">
-          <label for="password" class="mt-2">Password</label>
-          <input placeholder="password" type="password" class="form-control password" name="password" id="password">
-          <p class="text-muted text-center mt-1">
-            Already have an account? <a href="./login.html" class="text-primary">Signin Here</a>!
-          </p>
-          <div class="d-flex flex-row justify-content-center">
-            <button id="btnCreateAcc" style="min-width: 150px;" class="btn btn-outline-success mx-1 w-auto text-nowrap">Create Account</button>
-          </div>
-        </form>
+        <div class="d-flex flex-column p-4 border border-secondary rounded formContainer">
+          <h3 class="text-center">Login</h3>
+          <form class="d-flex flex-column">
+            <label for="name" class="mt-2">Display Name</label>
+            <input placeholder="Name" type="text" class="form-control name" name="name" id="name">
+            <label for="email" class="mt-2">Email</label>
+            <input placeholder="email@mail.com" type="email" class="form-control email" name="email" id="email">
+            <label for="password" class="mt-2">Password</label>
+            <input placeholder="password" type="password" class="form-control password" name="password" id="password">
+            <p class="text-muted text-center mt-1">
+              Already have an account? <a href="./login.html" class="text-primary">Signin Here</a>!
+            </p>
+            <div class="d-flex flex-row justify-content-center">
+              <button id="btnCreateAcc" style="min-width: 150px;" class="btn btn-outline-success mx-1 w-auto text-nowrap">Create Account</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
     <div class="row footer">
