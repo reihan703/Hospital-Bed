@@ -5,7 +5,6 @@ const add = document.getElementById("btnAdd");
 onAuthStateChanged(auth, (user) => {
 	if (user) {
     
-    
 		add.addEventListener("click", () => {
 			const item = document.getElementById("item").value;
       const uid = user.uid;
