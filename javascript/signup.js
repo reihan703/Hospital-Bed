@@ -19,6 +19,7 @@ createBtn.addEventListener("click", (e) => {
 				displayName: name,
 			}).catch((error)=>{
 				console.log(error.message)
+				alert(error.message)
 			});
 			console.log("created");
 			alert("Account created")
