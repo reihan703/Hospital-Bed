@@ -1,5 +1,10 @@
+html,
 body {
-    background-color: #F3F6FA;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    margin: 0;
+    padding: 0;
+    background-color: #F3F6FA !important;
 }
 
 
@@ -84,10 +89,84 @@ header {
 .home {
     text-align: center;
     width: 100%;
-    height: 100%;
+    height: 700px;
     padding: 200px;
     position: relative;
 }
 
 
 /* END HOME SECTION */
+
+
+/* BEDLIST SECTION */
+
+.bedList {
+    background-color: #0088a9;
+}
+
+.bed-select {
+    background-color: #ffffff;
+    border-radius: 15px;
+    height: 600px;
+    margin-bottom: 100px;
+    padding: 50px;
+}
+
+.col-12 .txt-rumah-sakit {
+    margin-bottom: 60px;
+}
+
+.select-form {
+    padding: 15px;
+}
+
+.label-select {
+    font-size: 24px;
+    font-style: bold;
+}
+
+.button {
+    margin: 15px;
+}
+
+
+/* END BEDLIST SECTION */
+
+
+/* DETAIL BEDLIST SECTION */
+
+.detail-bed {
+    background-color: white;
+}
+
+.card-color {
+    border-color: #0072F4;
+}
+
+
+/* END DETAIL BEDLIST SECTION */
+
+
+/* FORM */
+
+.loginForm {
+    height: 80vh;
+}
+
+.form-control.email,
+.form-control.password {
+    min-width: 300px;
+}
+
+.formContainer {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+/* END FORM */

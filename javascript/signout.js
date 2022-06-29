@@ -1,16 +1,30 @@
-import { auth, signOut, onAuthStateChanged } from "./config.js";
+import { auth, signOut } from "./config.js";
 
 // SIGNOUT BTN
-const outBtn = document.getElementById("btnSignout");
+const outBtn = document.getElementById("login");
 
 outBtn.addEventListener("click", () => {
 	signOut(auth)
 		.then(() => {
 			// Sign-out successful.
-			window.location.href = "./login.html";
+			window.location.href = "../html/login.html";
 		})
 		.catch((error) => {
 			// An error happened.
 			alert("failed");
 		});
 });
+
+// const useSignout = () =>{
+// 	signOut(auth)
+// 		.then(() => {
+// 			// Sign-out successful.
+// 			window.location.href = "../html/login.html";
+// 		})
+// 		.catch((error) => {
+// 			// An error happened.
+// 			alert("failed");
+// 		});
+// }
+
+// export {useSignout}
