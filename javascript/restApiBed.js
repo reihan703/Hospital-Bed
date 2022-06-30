@@ -8,6 +8,11 @@ let tbody = document.getElementById("tableBody");
 let dropdown = document.getElementById("selectedProvince");
 dropdown.length = 0;
 
+let album = document.getElementById("album");
+function erase(){
+    album.innerHTML = ''
+}
+
 // FIRST DROPDOWN VALUE
 let defaultOption = document.createElement("option");
 defaultOption.text = "Choose Province";
@@ -148,7 +153,35 @@ selectedCity.addEventListener("change", () => {
                         address.innerHTML = details.address + ",\u00A0";
                         phone.innerHTML = details.phone;
 
+                        console.log(details.bedDetail)
                         section.classList.remove("d-none")
+
+                        // let album = document.getElementById("album");
+                        // album.innerHTML = ''
+                        erase();
+                        const bedDetails = details.bedDetail
+                        bedDetails.forEach((bedDetail)=>{
+                            let html = '';
+                            html += '<div class="col">';
+                            html += '<div class="card shadow-sm card-color" style="min-height:170px;">';
+                            html += '<div class="card-body">';
+                            html += '<p class="card-text" id="bedDetail" style="font-weight:bold;">'+bedDetail.stats.title+'</p>'
+                            html += '<p class="card-text text-nowrap" id="bedDetail">Ruangan yang tersedia: '+bedDetail.stats.bed_empty+'</p>'
+                            html += '<div class="d-flex justify-content-between align-items-center">'
+                            html += '<small class="text-muted" id="time">'+bedDetail.time+'</small>'
+                            html += "</div> </div> </div> </div>";
+
+                            album.insertAdjacentHTML("afterbegin", html)
+                        })
+                        
+                        // let html = '';
+                        // html += '<div class="col">';
+                        // html += '<div class="card shadow-sm card-color">';
+                        // html += '<div class="card-body">';
+                        // html += '<p class="card-text" id="bedDetail">IGD Khusus Covid</p>'
+                        // html += '<div class="d-flex justify-content-between align-items-center">'
+                        // html += '<small class="text-muted" id="time">TimeStamp</small>'
+                        // html += "</div> </div> </div> </div>";
                     }
                     getDetails()
                 });

@@ -1,7 +1,6 @@
 html,
 body {
-    scroll-behavior: smooth;
-    scrollbar-width: thin;
+    scroll-behavior: smooth !important;
     margin: 0;
     padding: 0;
     background-color: #F3F6FA !important;

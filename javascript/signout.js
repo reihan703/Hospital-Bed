@@ -1,7 +1,7 @@
 import { auth, signOut } from "./config.js";
 
 // SIGNOUT BTN
-const outBtn = document.getElementById("login");
+const outBtn = document.getElementById("logout");
 
 outBtn.addEventListener("click", () => {
 	signOut(auth)

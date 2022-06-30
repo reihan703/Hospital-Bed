@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body id="page-top">
@@ -34,6 +34,7 @@
             <li><a class="link text-nowrap dark" href="#bedList">Bed list</a></li>
             <li><a class="link text-nowrap dark" href="#detail-bed">Detail RS</a></li>
             <li><a class="link text-nowrap dark" href="#">Your posts</a></li>
+            <li><a class="link text-nowrap text-danger dark" href="#" id="logout">Signout</a></li>
           </ul>
         </div>
       </div>
@@ -41,10 +42,11 @@
 
     <!-- HOME SECTION -->
     <section id="home">
+
         <div class="home container px-4">
             <div class="row">
                 <div class="mt-5">
-                    <h1>Welcome to .....</h1>
+                    <h1 id="displayName"></h1>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, iure! Laudantium numquam, nisi iste aspernatur vero quasi esse, veritatis aperiam aut perferendis velit? Ad accusamus debitis animi quis a minima.</p>
                     <a class="btn btn-outline-primary btn-sm " href="#bedList" role="button">Check bed list </a>
                 </div>
@@ -102,13 +104,13 @@
         <div class="album py-5 bg-light">
             <div class="container">
 
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <div class="col">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="album">
+                    <!-- <div class="col">
                         <div class="card shadow-sm card-color">
                             <div class="card-body">
-                                <p class="card-text">IGD Khusus Covid</p>
+                                <p class="card-text" id="bedDetail">IGD Khusus Covid</p>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <small class="text-muted">TimeStamp</small>
+                                    <small class="text-muted" id="time">TimeStamp</small>
                                 </div>
                             </div>
                         </div>
@@ -178,7 +180,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -190,12 +192,39 @@
 
 
     <!-- SIGNOUT -->
-    <script src="../javascript/signout.js " type="module "></script>
+    <script src="../javascript/signout.js " type="module" defer></script>
 
     <!-- ROUTE GUARD -->
-    <script type="module ">
-        import { auth, onAuthStateChanged } from "../javascript/config.js "; onAuthStateChanged(auth, (user) => { if (user == null) { window.location.href = "./login.html " } else { console.log(user.displayName) } });
+    <script type="module">
+        import { auth, onAuthStateChanged } from "../javascript/config.js "; 
+        onAuthStateChanged(auth, (user) => { 
+            if (user == null) {
+                window.location.href = "./login.html " 
+                return
+            } 
+            let name = document.getElementById('displayName')
+            name.innerHTML = "Hello "+ user.displayName +", "
+        });
     </script>
+
+    <!-- <script type="module">
+        import { auth, signOut } from "../javascript/config.js";
+
+// SIGNOUT BTN
+const outBtn = document.getElementById("logout");
+
+outBtn.addEventListener("click", () => {
+	signOut(auth)
+		.then(() => {
+			// Sign-out successful.
+			window.location.href = "../html/login.html";
+		})
+		.catch((error) => {
+			// An error happened.
+			alert("failed");
+		});
+});
+    </script> -->
 
     <!-- restApiBed -->
     <script src="/javascript/restApiBed.js"></script>
