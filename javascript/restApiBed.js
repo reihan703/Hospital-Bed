@@ -58,7 +58,7 @@ getProvince();
 
 // GET PROVINCE ID ON CLICK
 const selectedProvince = document.getElementById("selectedProvince");
-selectedProvince.addEventListener("click", () => {
+selectedProvince.addEventListener("change", () => {
     dropdownCity.length = 0;
     // ASSIGN VALUE FROM SELECTED DROPDOWN
     provinceID = dropdown.options[dropdown.selectedIndex].value;
@@ -87,7 +87,7 @@ selectedProvince.addEventListener("click", () => {
 });
 
 const selectedCity = document.getElementById("selectedCity");
-selectedCity.addEventListener("click", () => {
+selectedCity.addEventListener("change", () => {
     cityID = dropdownCity.options[dropdownCity.selectedIndex].value;
     let city = cityID;
     // GET PROVINCE ID AGAIN.... 
@@ -103,6 +103,10 @@ selectedCity.addEventListener("click", () => {
         let option;
         tbody.innerHTML = "";
         console.log(data.hospitals);
+        if(hospitals == 0){
+            alert("No hospital available")
+            return
+        }
         hospitals.forEach((hospital) => {
             try {
                 // INSERT DATA TO TABLE
@@ -117,6 +121,8 @@ selectedCity.addEventListener("click", () => {
                 // SET BUTTON ID TO THE CORRESPONDING HOSPITAL ID
                 td3.setAttribute("id", hospital.id);
                 td3.setAttribute("value", hospital.id);
+                // STYLE THE BUTTON
+                td3.classList.add("btn", "btn-outline-primary", "btn-sm");
                 // INSERT ALL TABLE DATA TO A SINGLE TABLE ROW
                 tr.appendChild(td);
                 tr.appendChild(td2);
@@ -132,7 +138,17 @@ selectedCity.addEventListener("click", () => {
                         const url = `https://rs-bed-covid-api.vercel.app/api/get-bed-detail?hospitalid=${idHospital}&type=1`
                         const res = await fetch(url);
                         const data = await res.json();
-                        console.log(data)
+                        const details = data.data;
+                        console.log(details)
+                        let section = document.getElementById("details")
+                        let name = document.getElementById('namaRS')
+                        let address = document.getElementById('alamat')
+                        let phone = document.getElementById('telefon')
+                        name.innerHTML = details.name
+                        address.innerHTML = details.address + ",\u00A0";
+                        phone.innerHTML = details.phone;
+
+                        section.classList.remove("d-none")
                     }
                     getDetails()
                 });
