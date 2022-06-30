@@ -22,6 +22,18 @@
 			<tbody id="tableBody"></tbody>
 		</table>
 
+		<script type="module ">
+        import { auth, onAuthStateChanged } from "../javascript/config.js "; 
+        onAuthStateChanged(auth, (user) => { 
+            if (user == null) {
+                window.location.href = "./login.html " 
+                return
+            } 
+            console.log(user) 
+            
+        });
+    </script>
+
 		<script>
 			// const url = " https://rs-bed-covid-api.vercel.app/api/get-bed-detail?hospitalid=5171133&type=1"
 			// async function getBed(){

@@ -8,166 +8,223 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body id="page-top">
     <!-- NAVBAR -->
-    <header class="navbar">
-        <img class="logo" src="" alt="logo">
-        <nav>
-            <ul class="nav__links">
-                <li><a href="">Home</a></li>
-                <li><a href="">Bed List</a></li>
-                <li><a href="">Market Place</a></li>
-            </ul>
-        </nav>
-        <ul class="nav_links">
-            <li><a class="cta" href=""><button>Cart</button></a></li>
-            <li><a href=""><button id="login">Login</button></a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-light d-lg-flex flex-row m-3 fixed-top">
+      <div class="container">
+        <div class="brands ml-lg-4 text-nowrap dark d-flex flex-row">
+          <div class="brand">
+            Hospital Beds
+          </div>
+          <div class="switch my-auto ml-3" style="font-size: 1.5rem;">
+            <i class="fas fa-sun themeIcon  "></i>
+          </div>
+        </div>
+      
+        <a class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </a>
 
-    </header>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navLinks d-lg-flex flex-row my-auto ml-auto">
+            <li><a class="link text-nowrap dark" href="#home">Home</a></li>
+            <li><a class="link text-nowrap dark" href="#bedList">Bed list</a></li>
+            <li><a class="link text-nowrap dark" href="#detail-bed">Detail RS</a></li>
+            <li><a class="link text-nowrap dark" href="#">Your posts</a></li>
+            <li><a class="link text-nowrap text-danger dark" href="#" id="logout">Signout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <!-- HOME SECTION -->
     <section id="home">
+
         <div class="home container px-4">
             <div class="row">
-                <div class="col-md-14">
-                    <h1>Welcome to .....</h1>
+                <div class="mt-5">
+                    <h1 id="displayName"></h1>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, iure! Laudantium numquam, nisi iste aspernatur vero quasi esse, veritatis aperiam aut perferendis velit? Ad accusamus debitis animi quis a minima.</p>
-                    <button class="btn-outline-primary mx-1 w-25">Check Bed List</button>
+                    <a class="btn btn-outline-primary btn-sm " href="#bedList" role="button">Check bed list </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CHECK BED LIST SESSION -->
-    <section id="bedList my-4 mx-5">
+    <section id="bedList">
         <div class="container px-4">
             <div class="row no-gutters bed-select">
-                <div class="col-12">
-                    <h1 class="text-center">KETERSEDIAAN TEMPAT TIDUR </h1>
-                    <h1 class="text-center txt-rumah-sakit">RUMAH SAKIT</h1>
-                    <div class="select-form">
-                        <label class="label-select" for="selectedProvince">Select Province in here</label>
-                        <select class="form-select " name="" id="selectedProvince"></select>
-                        <button class="button btn-outline-primary mx-1 w-auto " id="selectedProvince">Submit Province</button>
+                <div>
+                    <h1 class="text-center pt-5 mb-3">KETERSEDIAAN TEMPAT TIDUR <br> RUMAH SAKIT </h1>
+                    <div class="row">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="select-form w-auto">
+                                <label class="label-select text-nowrap" for="selectedProvince">Select Province in here</label>
+                                <select class="form-select " name="" id="selectedProvince"></select>
+                            </div>
+                            <div class="select-form w-auto">
+                                <label class="label-select text-nowrap " for="select-city ">Select city in here</label>
+                                <select class="form-select " name="" id="selectedCity"></select>
+                            </div>
+                        </div>
                     </div>
-                    <div class="select-form ">
-                        <label class="label-select " for="select-city ">Select city in here</label>
-                        <select class="form-select " name="" id="selectedCity"></select>
-                        <button class="button btn-outline-primary mx-1 w-auto " id="selectedCity">Submit City</button>
+                    <div class="row container mx-auto">
+                        <table class="table">
+                            <thead>
+                                <th>Hospital name</th>
+                                <th>Hospital beds</th>
+                                <th>Action</th>
+                            </thead>
+                            <tbody id="tableBody"></tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- DETAIL BED LIST SESSION -->
-    <section class="detail-bed py-5 text-center ">
-        <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Nama Rumah Sakit</h1>
-                <p class="lead text-muted">alamat rumah sakit, nomor telfon, dll</p>
+    <div id="details" class="d-none">
+        <section class="detail-bed py-5 text-center" id="detail-bed">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light" id="namaRS">Nama Rumah Sakit</h1>
+                    <div class="d-flex flex-row justify-content-center">
+                        <p class="lead text-muted" id="alamat">alamat rumah sakit,</p>
+                        <p class="lead text-muted" id="telefon">nomor telfon</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+            
+        </section>
 
-    <div class="album py-5 bg-light">
-        <div class="container">
+        <div class="album py-5 bg-light">
+            <div class="container">
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <div class="col">
-                    <div class="card shadow-sm card-color">
-                        <div class="card-body">
-                            <p class="card-text">IGD Khusus Covid</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">TimeStamp</small>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="album">
+                    <!-- <div class="col">
+                        <div class="card shadow-sm card-color">
+                            <div class="card-body">
+                                <p class="card-text" id="bedDetail">IGD Khusus Covid</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted" id="time">TimeStamp</small>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <p class="card-text">Isolasi Tanpa Tekanan Negatif</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">TimeStamp</small>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <p class="card-text">Isolasi Tanpa Tekanan Negatif</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">TimeStamp</small>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col">
-                    <div class="card shadow-sm card-color">
-                        <div class="card-body">
-                            <p class="card-text">Isolasi Tekanan Negatif</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">TimeStamp</small>
+                    <div class="col">
+                        <div class="card shadow-sm card-color">
+                            <div class="card-body">
+                                <p class="card-text">Isolasi Tekanan Negatif</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">TimeStamp</small>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <p class="card-text">ICU Tanpa Tekanan Negatif Tanpa Ventilator</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">TimeStamp</small>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <p class="card-text">ICU Tanpa Tekanan Negatif Tanpa Ventilator</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">TimeStamp</small>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col">
-                    <div class="card shadow-sm card-color">
-                        <div class="card-body">
-                            <p class="card-text">ICU Tanpa Tekanan Negatif Dengan Ventilator</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">TimeStamp</small>
+                    <div class="col">
+                        <div class="card shadow-sm card-color">
+                            <div class="card-body">
+                                <p class="card-text">ICU Tanpa Tekanan Negatif Dengan Ventilator</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">TimeStamp</small>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <p class="card-text">ICU Tekanan Negatif Tanpa Ventilator</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">TimeStamp</small>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <p class="card-text">ICU Tekanan Negatif Tanpa Ventilator</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">TimeStamp</small>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col">
-                    <div class="card shadow-sm card-color">
-                        <div class="card-body">
-                            <p class="card-text">ICU Tekanan Negatif Dengan Ventilator</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">TimeStamp</small>
+                    <div class="col">
+                        <div class="card shadow-sm card-color">
+                            <div class="card-body">
+                                <p class="card-text">ICU Tekanan Negatif Dengan Ventilator</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">TimeStamp</small>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
     </div>
+    <!-- DETAIL BED LIST SESSION -->
+    
 
 
 
 
     <!-- SIGNOUT -->
-    <script src="../javascript/signout.js " type="module "></script>
+    <script src="../javascript/signout.js " type="module" defer></script>
 
     <!-- ROUTE GUARD -->
-    <script type="module ">
-        import { auth, onAuthStateChanged } from "../javascript/config.js "; onAuthStateChanged(auth, (user) => { if (user == null) { window.location.href = "./login.html " } else { console.log(user.displayName) } });
+    <script type="module">
+        import { auth, onAuthStateChanged } from "../javascript/config.js "; 
+        onAuthStateChanged(auth, (user) => { 
+            if (user == null) {
+                window.location.href = "./login.html " 
+                return
+            } 
+            let name = document.getElementById('displayName')
+            name.innerHTML = "Hello "+ user.displayName +", "
+        });
     </script>
+
+    <!-- <script type="module">
+        import { auth, signOut } from "../javascript/config.js";
+
+// SIGNOUT BTN
+const outBtn = document.getElementById("logout");
+
+outBtn.addEventListener("click", () => {
+	signOut(auth)
+		.then(() => {
+			// Sign-out successful.
+			window.location.href = "../html/login.html";
+		})
+		.catch((error) => {
+			// An error happened.
+			alert("failed");
+		});
+});
+    </script> -->
 
     <!-- restApiBed -->
     <script src="/javascript/restApiBed.js"></script>

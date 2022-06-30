@@ -1,7 +1,6 @@
 html,
 body {
-    scroll-behavior: smooth;
-    scrollbar-width: thin;
+    scroll-behavior: smooth !important;
     margin: 0;
     padding: 0;
     background-color: #F3F6FA !important;
@@ -9,8 +8,65 @@ body {
 
 
 /* NAVBAR ATAS */
-
 .navbar {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.navbar .brand {
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.navLinks {
+  list-style: none;
+}
+
+.navLinks li a { 
+  color: var(--dark);
+  text-decoration: none;
+  padding: 1rem;
+  display: block;
+  font-weight: bold;
+  font-size: .9rem;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--dark);
+  transition: transform .2s;
+}
+
+.link:hover {
+  color: var(--dark);
+  -ms-transform: scale(1.2);
+  /* IE 9 */
+  -webkit-transform: scale(1.2);
+  /* Safari 3-8 */
+  transform: scale(1.2);
+}
+
+.navLinks li {
+  transition: transform .2s;
+}
+
+.navLinks li:hover { 
+  -ms-transform: scale(1.2);
+  /* IE 9 */
+  -webkit-transform: scale(1.2);
+  /* Safari 3-8 */
+  transform: scale(1.2);
+}
+
+button {
+  outline: none;
+}
+
+/* .navbar {
     box-sizing: border-box;
     margin: 0px;
     padding: 30px;
@@ -40,9 +96,9 @@ button {
     font-size: 16px;
     color: black;
     text-decoration: none;
-}
+} */
 
-header {
+/* header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -78,7 +134,7 @@ header {
 
 .nav__links li a:hover {
     color: #0088a9;
-}
+} */
 
 
 /* END NAVBAR ATAS */
@@ -88,8 +144,7 @@ header {
 
 .home {
     text-align: center;
-    width: 100%;
-    height: 700px;
+    height: 100vh;
     padding: 200px;
     position: relative;
 }
@@ -107,14 +162,14 @@ header {
 .bed-select {
     background-color: #ffffff;
     border-radius: 15px;
-    height: 600px;
+    min-height: 400px;
     margin-bottom: 100px;
     padding: 50px;
 }
 
-.col-12 .txt-rumah-sakit {
+/* .col-12 .txt-rumah-sakit {
     margin-bottom: 60px;
-}
+} */
 
 .select-form {
     padding: 15px;
@@ -170,3 +225,9 @@ header {
 
 
 /* END FORM */
+
+/* TABLE */
+.table{
+    overflow-x: auto !important;
+}
+/* END TABLE */
