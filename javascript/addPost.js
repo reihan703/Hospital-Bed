@@ -18,14 +18,10 @@ const addPost = (id) => {
 			const uid = user.uid;
 			const name = user.displayName;
 			var dbRef = ref(db);
-			var dbRef2 = ref(db, "hospitals/" + id + "/" + uid);
 			const checkData = () => {
 				get(child(dbRef, "hospitals/" + id + "/" + uid))
 					.then((snapshot) => {
 						if (!snapshot.exists()) {
-							// alert(
-							//   "You have a review for this hospital already, go to Your Post to update it"
-							// );
 							set(ref(db, "hospitals/" + id + "/" + uid), {
 								display_name: name,
 								review: input.value,
@@ -42,16 +38,6 @@ const addPost = (id) => {
 							alert("Your post is exists");
               location.reload()
 							return;
-							// set(ref(db, "hospitals/" + id + "/" + uid), {
-							// 	display_name: name,
-							// 	review: input.value,
-							// })
-							// 	.then(() => {
-							// 		alert("Review Posted");
-							// 	})
-							// 	.catch((error) => {
-							// 		alert(error);
-							// 	});
 						}
 					})
 					.catch((error) => {
@@ -61,7 +47,7 @@ const addPost = (id) => {
 			btn.addEventListener("click", checkData, true);
 			// ...
 		} else {
-			alert("No account logged in");
+			alert("You're logged out");
 		}
 	});
 };

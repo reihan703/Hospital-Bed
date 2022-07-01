@@ -14,16 +14,19 @@ const signup = () => {
 		const password = document.getElementById("password").value;
 		createUserWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
-				const name = document.getElementById("nameInput").value;
-				const user = userCredential.user;
-				updateProfile(auth.currentUser, {
-					displayName: name,
-				}).catch((error)=>{
-					console.log(error.message)
-					alert(error.message)
-				});
-				console.log("created");
-				alert("Account created")
+				// const name = document.getElementById("nameInput").value;
+				// const user = userCredential.user;
+				// updateProfile(auth.currentUser, {
+				// 	displayName: name,
+				// }).catch((error)=>{
+				// 	console.log(error.message)
+				// 	alert(error.message)
+				// });
+				return updateProfile(auth.currentUser, {
+					displayName: document.getElementById("nameInput").value
+				})
+				// console.log("created");
+				// alert("Account created")
 				// ...
 			})
 			.catch((error) => {
@@ -31,7 +34,7 @@ const signup = () => {
 				const errorMessage = error.message;
 				// ..
 				console.log(errorCode + errorMessage);
-				alert("password should be at least 6 characters")
+				// alert(errorMessage)
 			});
 	});
 }

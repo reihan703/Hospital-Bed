@@ -15,6 +15,7 @@ const showPosts = (id) => {
         posts.push(childSnap.val());
       });
       erase()
+      console.log(posts);
       posts.forEach((post)=>{
         let html = '';
         html += '<div class="card w-50" style="min-width:300px"><div class="card-body">';
