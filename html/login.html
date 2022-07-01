@@ -10,9 +10,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
 </head>
   <body class="container">
-    <div class="row nav mt-3">
-      <h3>Nav content</h3>
-    </div>
     <div class="row">
       <div class="d-flex justify-content-center align-items-center loginForm">
         <div class="d-flex flex-column p-4 border border-secondary rounded formContainer">
@@ -32,12 +29,13 @@
         </div>
       </div>
     </div>
-    <div class="row footer">
-      <h3>footer content</h3>
-    </div>
     
     <!-- SIGNUP AND LOGIN -->
-    <script type="module" src="../javascript/login.js"></script>
+    <script type="module">
+      import {useLogin} from '../javascript/login.js';
+      const {login} = useLogin()
+      login()
+    </script>
     <!-- ROUTE GUARD -->
     <script type="module">
       import { auth, onAuthStateChanged } from "../javascript/config.js";

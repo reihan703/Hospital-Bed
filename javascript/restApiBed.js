@@ -1,3 +1,11 @@
+import { useShowPosts } from "./showPosts.js";
+import { useAddPost } from "./addPost.js";
+
+const {addPost} = useAddPost();
+const {showPosts} = useShowPosts();
+// CONNECT TO THE 'DETAIL RS' NAV
+let detailNav = document.getElementById('detailRS')
+
 // CREATE DROPDOWN FROM JSON
 // PROVINCES DROPDOWN
 var provinceID, cityID, typeID;
@@ -107,7 +115,6 @@ selectedCity.addEventListener("change", () => {
         const hospitals = data.hospitals;
         let option;
         tbody.innerHTML = "";
-        console.log(data.hospitals);
         if(hospitals == 0){
             alert("No hospital available")
             return
@@ -138,8 +145,12 @@ selectedCity.addEventListener("change", () => {
                 // CONNECT TO TD3
                 const btn = document.getElementById(hospital.id);
                 btn.addEventListener("click", () => {
+                    // DISPLAYING THE 'DETAIL RS' ON NAVBAR
+                    detailNav.classList.remove('d-none')
                     async function getDetails() {
                         const idHospital = hospital.id
+                        addPost(idHospital);
+                        showPosts(idHospital);
                         const url = `https://rs-bed-covid-api.vercel.app/api/get-bed-detail?hospitalid=${idHospital}&type=1`
                         const res = await fetch(url);
                         const data = await res.json();
@@ -152,36 +163,27 @@ selectedCity.addEventListener("change", () => {
                         name.innerHTML = details.name
                         address.innerHTML = details.address + ",\u00A0";
                         phone.innerHTML = details.phone;
-
-                        console.log(details.bedDetail)
                         section.classList.remove("d-none")
 
-                        // let album = document.getElementById("album");
-                        // album.innerHTML = ''
+                        // CLEARING THE ALBUM SECTION
                         erase();
                         const bedDetails = details.bedDetail
+                        let counter = 1;
                         bedDetails.forEach((bedDetail)=>{
+                            // CREATING CARDS FOR EACH BED DETAIL
                             let html = '';
                             html += '<div class="col">';
                             html += '<div class="card shadow-sm card-color" style="min-height:170px;">';
                             html += '<div class="card-body">';
-                            html += '<p class="card-text" id="bedDetail" style="font-weight:bold;">'+bedDetail.stats.title+'</p>'
-                            html += '<p class="card-text text-nowrap" id="bedDetail">Ruangan yang tersedia: '+bedDetail.stats.bed_empty+'</p>'
+                            html += '<p class="card-text" id="bedTitle'+counter+'" style="font-weight:bold;">'+bedDetail.stats.title+'</p>'
+                            html += '<p class="card-text text-nowrap" id="bedEmpty'+counter+'">Ruangan yang tersedia: '+bedDetail.stats.bed_empty+'</p>'
                             html += '<div class="d-flex justify-content-between align-items-center">'
                             html += '<small class="text-muted" id="time">'+bedDetail.time+'</small>'
                             html += "</div> </div> </div> </div>";
 
-                            album.insertAdjacentHTML("afterbegin", html)
+                            counter++;
+                            album.insertAdjacentHTML("beforeend", html)
                         })
-                        
-                        // let html = '';
-                        // html += '<div class="col">';
-                        // html += '<div class="card shadow-sm card-color">';
-                        // html += '<div class="card-body">';
-                        // html += '<p class="card-text" id="bedDetail">IGD Khusus Covid</p>'
-                        // html += '<div class="d-flex justify-content-between align-items-center">'
-                        // html += '<small class="text-muted" id="time">TimeStamp</small>'
-                        // html += "</div> </div> </div> </div>";
                     }
                     getDetails()
                 });
