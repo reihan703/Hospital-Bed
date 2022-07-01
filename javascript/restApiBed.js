@@ -4,7 +4,7 @@ import { useAddPost } from "./addPost.js";
 const {addPost} = useAddPost();
 const {showPosts} = useShowPosts();
 // CONNECT TO THE 'DETAIL RS' NAV
-let detailNav = document.getElementById('detailRS')
+const detailNav = document.getElementById('detailRS')
 
 // CREATE DROPDOWN FROM JSON
 // PROVINCES DROPDOWN
@@ -16,7 +16,7 @@ let tbody = document.getElementById("tableBody");
 let dropdown = document.getElementById("selectedProvince");
 dropdown.length = 0;
 
-let album = document.getElementById("album");
+const album = document.getElementById("album");
 function erase(){
     album.innerHTML = ''
 }
