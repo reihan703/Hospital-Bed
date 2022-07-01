@@ -149,6 +149,7 @@ selectedCity.addEventListener("change", () => {
                     detailNav.classList.remove('d-none')
                     async function getDetails() {
                         const idHospital = hospital.id
+                        console.log(idHospital)
                         addPost(idHospital);
                         showPosts(idHospital);
                         const url = `https://rs-bed-covid-api.vercel.app/api/get-bed-detail?hospitalid=${idHospital}&type=1`

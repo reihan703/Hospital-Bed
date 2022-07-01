@@ -1,4 +1,4 @@
-import { auth, onAuthStateChanged, db, set, ref, child, get } from "./config.js";
+import { auth, onAuthStateChanged, db, set, ref, child, get, onValue } from "./config.js";
 
 const addPost = (id) => {
   const input = document.getElementById("inputPost");
@@ -13,7 +13,7 @@ const addPost = (id) => {
       var dbRef = ref(db)
       var dbRef2 = ref(db, "hospitals/" + id + "/" + uid)
       const checkData = () => {
-      get(child(dbRef, "hospitals/" + id + "/" + uid))
+      get(child(dbRef, "hospitals/" + id))
       .then((snapshot) => {
         if (!snapshot.exists()) {
           // alert(
@@ -25,6 +25,7 @@ const addPost = (id) => {
 					})
 						.then(() => {
 							alert("Review Posted");
+              location.reload();
 						})
 						.catch((error) => {
 							alert(error);
@@ -32,6 +33,7 @@ const addPost = (id) => {
           return;
         } else {
           alert('Your post is exists')
+          location.reload();
           return;
           // set(ref(db, "hospitals/" + id + "/" + uid), {
 					// 	display_name: name,
@@ -49,12 +51,28 @@ const addPost = (id) => {
         alert(error);
       });
     }
-      btn.addEventListener('click', checkData, true)
+      btn.addEventListener('click', checkData)
       // ...
     } else {
       alert("No account logged in")
     }
   });
+
+  // let userSession = auth.currentUser;
+  // let dbRef = ref(db, "hospitals/" + id );
+  // btn.addEventListener("click", ()=>{
+  //   onValue(dbRef, (snapshot)=>{
+  //     let userID = snapshot.val()
+  //     for (let i in userID){
+  //       if (userID[i]==userSession.uid){
+  //         console.log('exists')
+  //       }else{
+  //         console.log('not exists');
+  //       }
+  //     }
+  //   })
+  // })
+  
 }
 
 const useAddPost = () => {
