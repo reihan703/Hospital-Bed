@@ -113,7 +113,6 @@ selectedCity.addEventListener("change", () => {
         const res = await fetch(url);
         const data = await res.json();
         const hospitals = data.hospitals;
-        let option;
         tbody.innerHTML = "";
         if(hospitals == 0){
             alert("No hospital available")
@@ -144,12 +143,13 @@ selectedCity.addEventListener("change", () => {
 
                 // CONNECT TO TD3
                 const btn = document.getElementById(hospital.id);
-                btn.addEventListener("click", () => {
+                btn.addEventListener("click", (e) => {
                     // DISPLAYING THE 'DETAIL RS' ON NAVBAR
+                    e.preventDefault()
                     detailNav.classList.remove('d-none')
                     async function getDetails() {
+                        document.getElementById("submitPost").remove()
                         const idHospital = hospital.id
-                        console.log(idHospital)
                         addPost(idHospital);
                         showPosts(idHospital);
                         const url = `https://rs-bed-covid-api.vercel.app/api/get-bed-detail?hospitalid=${idHospital}&type=1`
