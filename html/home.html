@@ -32,7 +32,7 @@
           <ul class="navLinks d-lg-flex flex-row my-auto ml-auto">
             <li><a class="link text-nowrap dark" href="#home">Home</a></li>
             <li><a class="link text-nowrap dark" href="#bedList">Bed list</a></li>
-            <li><a class="link text-nowrap dark" href="#detail-bed">Detail RS</a></li>
+            <li><a class="link text-nowrap dark d-none" id="detailRS" href="#detail-bed">Detail RS</a></li>
             <li><a class="link text-nowrap dark" href="#">Your posts</a></li>
             <li><a class="link text-nowrap text-danger dark" href="#" id="logout">Signout</a></li>
           </ul>
@@ -59,7 +59,7 @@
         <div class="container px-4">
             <div class="row no-gutters bed-select">
                 <div>
-                    <h1 class="text-center pt-5 mb-3">KETERSEDIAAN TEMPAT TIDUR <br> RUMAH SAKIT </h1>
+                    <h1 class="text-center pt-5 mb-3">KETERSEDIAAN TEMPAT TIDUR <br>PASIEN COVID DI RUMAH SAKIT </h1>
                     <div class="row">
                         <div class="d-flex flex-column align-items-center">
                             <div class="select-form w-auto">
@@ -89,11 +89,11 @@
 
     <div id="details" class="d-none">
         <section class="detail-bed py-5 text-center" id="detail-bed">
-            <div class="row py-lg-5">
+            <div class="container py-lg-5 mx-auto">
                 <div class="col-lg-6 col-md-8 mx-auto">
                     <h1 class="fw-light" id="namaRS">Nama Rumah Sakit</h1>
                     <div class="d-flex flex-row justify-content-center">
-                        <p class="lead text-muted" id="alamat">alamat rumah sakit,</p>
+                        <p class="lead text-muted text-nowrap" id="alamat">alamat rumah sakit,</p>
                         <p class="lead text-muted" id="telefon">nomor telfon</p>
                     </div>
                 </div>
@@ -103,96 +103,37 @@
 
         <div class="album py-5 bg-light">
             <div class="container">
-
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="album">
-                    <!-- <div class="col">
-                        <div class="card shadow-sm card-color">
-                            <div class="card-body">
-                                <p class="card-text" id="bedDetail">IGD Khusus Covid</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <small class="text-muted" id="time">TimeStamp</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <p class="card-text">Isolasi Tanpa Tekanan Negatif</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <small class="text-muted">TimeStamp</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm card-color">
-                            <div class="card-body">
-                                <p class="card-text">Isolasi Tekanan Negatif</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <small class="text-muted">TimeStamp</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <p class="card-text">ICU Tanpa Tekanan Negatif Tanpa Ventilator</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <small class="text-muted">TimeStamp</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm card-color">
-                            <div class="card-body">
-                                <p class="card-text">ICU Tanpa Tekanan Negatif Dengan Ventilator</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <small class="text-muted">TimeStamp</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <p class="card-text">ICU Tekanan Negatif Tanpa Ventilator</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <small class="text-muted">TimeStamp</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm card-color">
-                            <div class="card-body">
-                                <p class="card-text">ICU Tekanan Negatif Dengan Ventilator</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <small class="text-muted">TimeStamp</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
+
+        <div class="mb-5 container d-flex flex-column align-items-center" style="max-height: 40vh; overflow-y: scroll;">
+            <h1>Hospital's Reviews</h1>
+            <div class="d-flex flex-wrap reviews" id="reviews">
+                <div class="card w-50">
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form class="container d-flex flex-column justify-content-center align-items-center" id="userReview">
+            <textarea class="form-control w-50" id="inputPost" cols="10" rows="5" placeholder="Your review"></textarea>
+            <a class="btn btn-outline-primary btn-sm my-3" style="min-width: 200px;" role="button" id="submitPost">Post</a>
+        </form>
     </div>
-    <!-- DETAIL BED LIST SESSION -->
+    <!-- END DETAIL BED LIST SESSION -->
+
     
 
-
-
-
     <!-- SIGNOUT -->
-    <script src="../javascript/signout.js " type="module" defer></script>
+    <script type="module">
+        import {useSignout} from '../javascript/signout.js'
+        const {signout} = useSignout()
+        signout()
+    </script>
 
     <!-- ROUTE GUARD -->
     <script type="module">
@@ -207,27 +148,8 @@
         });
     </script>
 
-    <!-- <script type="module">
-        import { auth, signOut } from "../javascript/config.js";
-
-// SIGNOUT BTN
-const outBtn = document.getElementById("logout");
-
-outBtn.addEventListener("click", () => {
-	signOut(auth)
-		.then(() => {
-			// Sign-out successful.
-			window.location.href = "../html/login.html";
-		})
-		.catch((error) => {
-			// An error happened.
-			alert("failed");
-		});
-});
-    </script> -->
-
     <!-- restApiBed -->
-    <script src="/javascript/restApiBed.js"></script>
+    <script type="module" src="/javascript/restApiBed.js"></script>
 </body>
 
 </html>
