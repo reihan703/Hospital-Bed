@@ -231,3 +231,27 @@ button {
     overflow-x: auto !important;
 }
 /* END TABLE */
+
+/* YOUR POST SECTION */
+.your-post{
+    text-align: center;
+    padding-top: 150px;
+    padding-bottom: 50px;
+    position: relative;
+}
+
+.table-review{
+    background-color: #ffffff;
+    border-radius: 15px;
+    min-height: 400px;
+    margin-bottom: 100px;
+    padding: 50px;
+}
+
+.review{
+    border: 5px solid #0072F4;
+    border-radius: 15px;
+    height: fit-content;
+
+}
+/* END YOUR POST SECTION */
