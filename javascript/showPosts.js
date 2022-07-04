@@ -10,9 +10,11 @@ const showPosts = (id) => {
   onValue(dbRef, (snapshot) => {
     try {
       var posts = [];
+
       // console.log(snapshot);
       snapshot.forEach((childSnap) => {
         posts.push(childSnap.val());
+        console.log(childSnap.val().length);
       });
       erase()
       console.log(posts);

@@ -150,7 +150,7 @@ selectedCity.addEventListener("change", () => {
                     async function getDetails() {
                         document.getElementById("submitPost").remove()
                         const idHospital = hospital.id
-                        addPost(idHospital);
+                        addPost(idHospital, hospital.name);
                         showPosts(idHospital);
                         const url = `https://rs-bed-covid-api.vercel.app/api/get-bed-detail?hospitalid=${idHospital}&type=1`
                         const res = await fetch(url);

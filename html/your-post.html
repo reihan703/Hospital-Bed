@@ -31,9 +31,9 @@
                 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navLinks d-lg-flex flex-row my-auto ml-auto">
-                    <li><a class="link text-nowrap dark" href="#home">Home</a></li>
-                    <li><a class="link text-nowrap dark" href="#bedList">Bed list</a></li>
-                    <li><a class="link text-nowrap dark d-none" id="detailRS" href="#detail-bed">Detail RS</a></li>
+                    <li><a class="link text-nowrap dark" href="./home.html">Home</a></li>
+                    <li><a class="link text-nowrap dark" href="./home.html">Bed list</a></li>
+                    <li><a class="link text-nowrap dark d-none" id="detailRS" href="./home.html">Detail RS</a></li>
                     <li><a class="link text-nowrap dark" href="#">Your posts</a></li>
                     <li><a class="link text-nowrap text-danger dark" href="#" id="logout">Signout</a></li>
                 </ul>
@@ -54,29 +54,18 @@
             </div>
         </div>
 
-        <div class="container table-review">
-            <div class="row d-flex review">
-                <div class="col p-4">
-                    <h2>Nama RS</h2>
-                    <p>detail rs</p>
-                    <div class="form-outline">
-                        <label class="form-label" for="textAreaExample">Review</label>
-                        <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
-                      </div>
-                    <div class="row my-3 ">
-                        <div class="col-lg-1 offset-10"><button class="btn btn-warning">Update</button></div>
-                        <div class="col-lg-1"><button class="btn btn-danger">Delete</button></div>
-                    </div>
-                    
-                </div>
-            </div>
+        <div class="container table-review" id="table-review">
         </div>
     </section>
     
     <!-- END YOUR POST REVIEW -->
 
 
-
+<script type="module">
+    import {useYourPosts} from '../javascript/yourPosts.js'
+    const {yourPosts} = useYourPosts()
+    yourPosts()
+</script>
 
 
 </body>
