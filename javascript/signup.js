@@ -15,15 +15,18 @@ const signup = () => {
 		createUserWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				// const name = document.getElementById("nameInput").value;
-				// const user = userCredential.user;
+				const user = userCredential.user;
 				// updateProfile(auth.currentUser, {
 				// 	displayName: name,
 				// }).catch((error)=>{
 				// 	console.log(error.message)
 				// 	alert(error.message)
 				// });
-				return updateProfile(auth.currentUser, {
+				// console.log(document.getElementById("nameInput").value);
+				return updateProfile(user, {
 					displayName: document.getElementById("nameInput").value
+				}).then(()=>{
+					window.location.href = "./home.html";
 				})
 				// console.log("created");
 				// alert("Account created")
