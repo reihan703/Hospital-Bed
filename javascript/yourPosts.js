@@ -1,4 +1,4 @@
-import { auth, onAuthStateChanged, db, ref, onValue } from "./config.js";
+import { auth, onAuthStateChanged, db, ref, onValue, update, remove } from "./config.js";
 
 const yourPosts = () => {
 	const dbRef = ref(db, "hospitals");
@@ -37,7 +37,45 @@ const yourPosts = () => {
                         </div>
                     </div>
                 </div>`;
+                // ADD THE HTML TO THE CONTAINER
 								tablerev.insertAdjacentHTML("beforeend", html);
+                let btnUpdateID = "updateBtn"+counter;
+                let btnDeleteID = "deleteBtn"+counter;
+                let textareaID = "textAreaExample" + counter;
+                const btnUpdate = document.getElementById(btnUpdateID);
+                btnUpdate.addEventListener('click', (e)=>{
+                  let newReview = document.getElementById(textareaID);
+                  const updateReview = () =>{
+                    update(ref(db, "hospitals/" + "/" + childSnap.key+'/'+child.key), {
+                      review: newReview.value
+                    }).then(()=>{
+                      alert("Review Updated")
+                    }).catch((error)=>{
+                      console.log(error);
+                    });
+                  }
+                  updateReview()
+                })
+
+                const btnDelete = document.getElementById(btnDeleteID);
+                btnDelete.addEventListener('click', (e)=>{
+                  const deleteReview = () => {
+                    remove(
+                      ref(
+                        db,
+                        "hospitals/" + "/" + childSnap.key + "/" + child.key
+                      )
+                    )
+                      .then(() => {
+												alert("Review Deleted");
+												location.reload();
+											})
+                      .catch((error) => {
+                        alert(error);
+                      });
+                  }
+                  deleteReview()
+                })
 							}
 							// INCREASE THE DYNAMIC ID
 							counter++;
