@@ -37,7 +37,7 @@ const signup = () => {
 				const errorMessage = error.message;
 				// ..
 				console.log(errorCode + errorMessage);
-				// alert(errorMessage)
+				alert(errorMessage)
 			});
 	});
 }

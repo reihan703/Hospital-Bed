@@ -8,7 +8,7 @@ import {
 	get,
 } from "./config.js";
 
-const addPost = (id) => {
+const addPost = (id, hospitalName) => {
 	// CONNECT TO TH ELEMENT
 	const input = document.getElementById("inputPost");
 	const reviewFrom = document.getElementById("userReview");
@@ -34,6 +34,7 @@ const addPost = (id) => {
 							set(ref(db, "hospitals/" + id + "/" + uid), {
 								display_name: name,
 								review: input.value,
+								hospital: hospitalName
 							})
 								.then(() => {
 									alert("Review Posted");
