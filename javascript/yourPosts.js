@@ -31,9 +31,9 @@ const yourPosts = () => {
 									child.val().review
 								}</textarea>
                           </div>
-                        <div class="row my-3 mx-3">
-                            <div class="col-lg-1 offset-10"><button class="btn btn-warning" id="updateBtn${counter}">Update</button></div>
-                            <div class="col-lg-1"><button class="btn btn-danger" id="deleteBtn${counter}">Delete</button></div>
+                        <div class="row mt-3 mx-3">
+                            <div class="col col-lg-1  offset-lg-10"><button class="btn btn-warning" id="updateBtn${counter}">Update</button></div>
+                            <div class="col col-lg-1"><button class="btn btn-danger" id="deleteBtn${counter}">Delete</button></div>
                         </div>
                     </div>
                 </div>`;
