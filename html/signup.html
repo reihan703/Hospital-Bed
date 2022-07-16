@@ -38,16 +38,16 @@
       const {signup} = useSignup()
       signup()
     </script>
-    <!-- ROUTE GUARD -->
+    <!-- ROUTE GUARD
     <script type="module">
       import { auth, onAuthStateChanged } from "../javascript/config.js";
 
       onAuthStateChanged(auth, (user) => {
       if (user != null) {
-        window.location.href = "./home.html"
+        window.location.href = "./index.html"
         // console.log(user.displayName)
       }
     });
-    </script> 
+    </script>  -->
   </body>
 </html>

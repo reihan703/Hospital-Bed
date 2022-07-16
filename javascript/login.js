@@ -12,7 +12,7 @@ const login = () => {
 				// Signed in
 				const user = userCredential.user;
 				console.log("Logged in");
-				window.location.href = "home.html";
+				window.location.href = "index.html";
 				// ...
 			})
 			.catch((error) => {
