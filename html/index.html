@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Site</title>
+    <title>HomePage</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
@@ -46,8 +46,10 @@
             <div class="row">
                 <div class="mt-5">
                     <h1 id="displayName"></h1>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, iure! Laudantium numquam, nisi iste aspernatur vero quasi esse, veritatis aperiam aut perferendis velit? Ad accusamus debitis animi quis a minima.</p>
+                    <p>Welcome to the Hospital-bed covid-19 Web, Have a nice day, you can find information about the availability of rooms for COVID-19 sufferers by scrolling to the bottom of the page or pressing the check bed list button.</p>
                     <a class="btn btn-outline-primary btn-sm " href="#bedList" role="button">Check bed list </a>
+                    <div class="d-flex flex-wrap mt-2 justify-content-center" id="covidData">
+                    </div>
                 </div>
             </div>
         </div>
@@ -149,6 +151,12 @@
 
     <!-- restApiBed -->
     <script type="module" src="/javascript/restApiBed.js"></script>
+    <script type="module">
+        import {useGetCovidData} from '../javascript/getCovidData.js'
+        const {getCovidData} = useGetCovidData()
+        getCovidData()
+    </script>
+
 </body>
 
 </html>

@@ -26,7 +26,7 @@ const signup = () => {
 				return updateProfile(user, {
 					displayName: document.getElementById("nameInput").value
 				}).then(()=>{
-					window.location.href = "./home.html";
+					window.location.href = "./index.html";
 				})
 				// console.log("created");
 				// alert("Account created")
