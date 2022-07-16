@@ -74,8 +74,11 @@ button {
 
 .home {
     text-align: center;
-    height: 100vh;
-    padding: 200px;
+    height: fit-content;
+    padding-top: 200px;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 150px;
     position: relative;
 }
 
@@ -191,3 +194,17 @@ h5.card-title.data::first-letter{
     text-transform: capitalize;
 }
 /* END CARD DATA */
+
+/* MANUAL RESPONSIVE */
+@media only screen and (max-width: 600px) {
+  .home {
+    text-align: center;
+    height: fit-content;
+    padding-top: 100px;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 50px;
+    position: relative;
+  }
+}
+/* END MANUAL RESPONSIVE */
