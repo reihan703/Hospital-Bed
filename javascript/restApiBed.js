@@ -132,6 +132,7 @@ selectedCity.addEventListener("change", () => {
                 // SET BUTTON ID TO THE CORRESPONDING HOSPITAL ID
                 td3.setAttribute("id", hospital.id);
                 td3.setAttribute("value", hospital.id);
+                td3.setAttribute("onClick", "document.location='index.html#detail-bed'");
                 // STYLE THE BUTTON
                 td3.classList.add("btn", "btn-outline-primary", "btn-sm");
                 // INSERT ALL TABLE DATA TO A SINGLE TABLE ROW

@@ -14,7 +14,7 @@ const getCovidData = async () => {
       }else{
         newI = 'Update Tanggal'
       }
-      html += `<div class="card w-auto m-2 text-nowrap">
+      html += `<div class="col-sm-12 col-lg card w-auto m-2 text-nowrap">
                   <div class="card-body">
                     <h5 class="card-title data">${newI}</h5>
                     <p class="card-text">${penambahan[i]}</p>
