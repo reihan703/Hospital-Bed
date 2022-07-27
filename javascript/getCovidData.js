@@ -2,7 +2,8 @@ const container = document.getElementById("covidData");
 let newI
 const getCovidData = async () => {
   
-	const url = "https://data.covid19.go.id/public/api/update.json";
+	const url =
+		"https://cors-anywhere.herokuapp.com/https://data.covid19.go.id/public/api/update.json";
 	const res = await fetch(url);
 	const data = await res.json();
   let penambahan = data.update.penambahan;
